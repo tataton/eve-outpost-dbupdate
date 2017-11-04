@@ -8,6 +8,7 @@ const sequelizeLocal = new Sequelize({
     host: config.LOCAL_DB_HOST,
     port: config.LOCAL_DB_PORT,
     dialect: 'postgres',
+    pool: {max: 20},
     operatorsAliases: false
 });
 
