@@ -7,8 +7,7 @@ const invTypeSchema = {
     },
     typeName: {
         type: Sequelize.STRING(100),
-        allowNull: false,
-        unique: true
+        allowNull: false
     },
     marketGroupID: {
         type: Sequelize.INTEGER

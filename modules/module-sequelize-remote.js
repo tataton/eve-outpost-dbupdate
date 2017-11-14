@@ -9,7 +9,10 @@ const sequelizeRemote = new Sequelize({
     port: config.REMOTE_DB_PORT,
     dialect: 'postgres',
     pool: {max: 20},
-    operatorsAliases: false
+    operatorsAliases: false,
+    dialectOptions: {
+        ssl: true
+    }
 });
 
 module.exports = sequelizeRemote;

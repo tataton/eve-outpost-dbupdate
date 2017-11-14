@@ -4,7 +4,6 @@
   "description": "Updates the eve-outpost database with data from a CCP-downloaded dump file.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "T. Andrew Taton",

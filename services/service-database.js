@@ -14,11 +14,5 @@ module.exports = {
     LocalMapSolarSystem: localDB.define('mapSolarSystem', mapSolarSystemSchema, {timestamps: false}),
     RemoteMapSolarSystem: remoteDB.define('mapSolarSystem', mapSolarSystemSchema, {timestamps: false}),
     LocalMapRegion: localDB.define('mapRegion', mapRegionSchema, {timestamps: false}),
-    RemoteMapRegion: remoteDB.define('mapRegion', mapRegionSchema, {timestamps: false}),
-    localClose () {
-        localDB.close();
-    },
-    remoteClose () {
-        remoteDB.close();
-    }
+    RemoteMapRegion: remoteDB.define('mapRegion', mapRegionSchema, {timestamps: false})
 };
