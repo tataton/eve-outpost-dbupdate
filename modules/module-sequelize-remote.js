@@ -1,18 +1,20 @@
 const Sequelize = require('sequelize');
 const config = require('../config');
 
-const sequelizeRemote = new Sequelize({
+const sequelizeObject = {
     database: config.REMOTE_DB_NAME,
     username: config.REMOTE_DB_USERNAME,
     password: config.REMOTE_DB_PASSWORD,
     host: config.REMOTE_DB_HOST,
     port: config.REMOTE_DB_PORT,
     dialect: 'postgres',
-    pool: {max: 20},
-    operatorsAliases: false,
-    dialectOptions: {
-        ssl: true
-    }
-});
+    operatorsAliases: false
+};
+
+if (config.REMOTE_DB_HOST !== 'localhost') {
+    sequelizeObject.dialectOptions = {ssl: true}
+}
+
+const sequelizeRemote = new Sequelize(sequelizeObject);
 
 module.exports = sequelizeRemote;
