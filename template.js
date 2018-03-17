@@ -1,15 +1,6 @@
 const Sequelize = require('sequelize');
 const DB = require('./services/service-database');
 
-// Thenable delay; delay(ms) accepts the result of a promise,
-// waits for the indicated time in ms, and then passes the accepted
-// result to the next promise (if necessary).
-const delay = (ms) => (passedArg => {
-    return new Promise(resolve => setTimeout(
-        () => resolve(passedArg), ms
-    ));
-});
-
 Promise.all([
     DB.RemoteMapRegion.sync()
         .then(model => model.destroy({where: {}})),
@@ -22,6 +13,8 @@ Promise.all([
     DB.RemoteStaStation.sync()
         .then(model => model.destroy({where: {}})),
     DB.RemotePublicStructure.sync(),
+    DB.RemotePrivateStructure.sync(),
+    DB.RemoteUserToStructure.sync(),
     DB.RemoteUser.sync()
 ])
 .catch((error) => {

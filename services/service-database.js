@@ -4,6 +4,8 @@ const mapSolarSystemSchema = require('../schemas/schema-mapsolarsystem');
 const mapRegionSchema = require('../schemas/schema-mapregion');
 const staStationSchema = require('../schemas/schema-stastation');
 const publicStructureSchema = require('../schemas/schema-publicstructure');
+const privateStructureSchema = require('../schemas/schema-privatestructure');
+const userToStructureSchema = require('../schemas/schema-usertostructure');
 const userSchema = require('../schemas/schema-user');
 
 const localDB = require('../modules/module-sequelize-local');
@@ -21,5 +23,7 @@ module.exports = {
     LocalStaStation: localDB.define('staStation', staStationSchema, {timestamps: false}),
     RemoteStaStation: remoteDB.define('staStation', staStationSchema, {timestamps: false}),
     RemotePublicStructure: remoteDB.define('publicStructure', publicStructureSchema),
+    RemotePrivateStructure: remoteDB.define('privateStructure', privateStructureSchema),
+    RemoteUserToStructure: remoteDB.define('userToStructure', userToStructureSchema),
     RemoteUser: remoteDB.define('user', userSchema)
 };

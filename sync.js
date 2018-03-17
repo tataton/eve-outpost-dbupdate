@@ -13,16 +13,7 @@ const delay = (ms) => (passedArg => {
 
 Promise.all([
 
-    DB.LocalMapRegion.findAll({
-        where: {
-            [Op.and]: [
-                {regionID: {[Op.ne]: 10000004}},
-                {regionID: {[Op.ne]: 10000017}},
-                {regionID: {[Op.ne]: 10000019}},
-                {regionID: {[Op.lt]: 11000000}}
-            ]
-        }
-    })
+    DB.LocalMapRegion.findAll()
     .then(delay(1000))
     .then(regions => {
         const remoteRegionArray = regions.map(region => {
@@ -53,16 +44,7 @@ Promise.all([
         return DB.RemoteInvType.bulkCreate(remoteTypeArray)
     }),
 
-    DB.LocalMapSolarSystem.findAll({
-        where: {
-            [Op.and]: [
-                {regionID: {[Op.ne]: 10000004}},
-                {regionID: {[Op.ne]: 10000017}},
-                {regionID: {[Op.ne]: 10000019}},
-                {regionID: {[Op.lt]: 11000000}}
-            ]
-        }
-    })
+    DB.LocalMapSolarSystem.findAll()
     .then(delay(1000))
     .then(solarsystems => {
         const remoteSolarSystemArray = solarsystems.map(solarsystem => {

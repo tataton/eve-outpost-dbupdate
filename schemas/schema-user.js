@@ -35,7 +35,7 @@ const userSchema = {
     writeRefreshToken: {
         type: Sequelize.STRING
     },
-    defaultMarket: {
+    savedLocation: {
         type: Sequelize.BIGINT,
         allowNull: true
     }
