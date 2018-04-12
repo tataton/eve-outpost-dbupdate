@@ -15,6 +15,7 @@ Promise.all([
     DB.RemotePublicStructure.sync(),
     DB.RemotePrivateStructure.sync(),
     DB.RemoteUserToStructure.sync(),
+    DB.RemotePubMarketOrder.sync(),
     DB.RemoteUser.sync()
 ])
 .catch((error) => {

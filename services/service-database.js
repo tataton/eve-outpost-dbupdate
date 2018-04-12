@@ -6,6 +6,7 @@ const staStationSchema = require('../schemas/schema-stastation');
 const publicStructureSchema = require('../schemas/schema-publicstructure');
 const privateStructureSchema = require('../schemas/schema-privatestructure');
 const userToStructureSchema = require('../schemas/schema-usertostructure');
+const pubMarketOrderSchema = require('../schemas/schema-pubmarketorder');
 const userSchema = require('../schemas/schema-user');
 
 const localDB = require('../modules/module-sequelize-local');
@@ -25,5 +26,6 @@ module.exports = {
     RemotePublicStructure: remoteDB.define('publicStructure', publicStructureSchema),
     RemotePrivateStructure: remoteDB.define('privateStructure', privateStructureSchema),
     RemoteUserToStructure: remoteDB.define('userToStructure', userToStructureSchema),
+    RemotePubMarketOrder: remoteDB.define('pubMarketOrder', pubMarketOrderSchema),
     RemoteUser: remoteDB.define('user', userSchema)
 };
